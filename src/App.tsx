@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import ImageFilter from './pages/ImageFilter';
 
 function App() {
+  const [started, setStarted] = React.useState(false);
+
+  const handleStart = () => {
+    setStarted(true);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex-col">
+      {!started && <Home handleStart={handleStart}/>}
+      {started && <ImageFilter/>}
     </div>
   );
 }
