@@ -28,7 +28,6 @@
 }
 
 .filter__thumbnail {
-  aspect-ratio: 1;
+  width: 64px;
   height: 64px;
-  width: auto;
 }

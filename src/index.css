@@ -8,6 +8,7 @@
   --border-radius: 8px;
   --text-color-inverted: white;
   --text-color: #000;
+  --highlight-color: #00000017;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,8 +21,9 @@
     --border-radius: 8px;
     --text-color-inverted: 000;
     --text-color: #fff;
+    --highlight-color: #ffffff17;
   }
-  }
+}
 
 body {
   background-color: var(--backgroud-color);
@@ -86,10 +88,12 @@ button:hover {
 .icon-button {
   background-color: transparent;
   color: var(--text-color);
-  aspect-ratio: 1;
+  width: 48px;
+  height: 48px;
   border-radius: 100%;
+  /* padding-top: 100%; */
 }
 
 .icon-button:hover {
-  background-color: #00000017;
+  background-color: var(--highlight-color);
 }
