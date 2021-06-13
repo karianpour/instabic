@@ -10,10 +10,14 @@ function App() {
     setStarted(true);
   }
 
+  const handleClose = () => {
+    setStarted(false);
+  }
+
   return (
     <div className="App flex-col">
       {!started && <Home handleStart={handleStart}/>}
-      {started && <ImageFilter/>}
+      {started && <ImageFilter onClose={handleClose}/>}
     </div>
   );
 }
