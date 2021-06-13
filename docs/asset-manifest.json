@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/instabic/static/css/main.0778f9fe.chunk.css",
+    "main.js": "/instabic/static/js/main.6ea1f6b5.chunk.js",
+    "main.js.map": "/instabic/static/js/main.6ea1f6b5.chunk.js.map",
+    "runtime-main.js": "/instabic/static/js/runtime-main.efe2cdb7.js",
+    "runtime-main.js.map": "/instabic/static/js/runtime-main.efe2cdb7.js.map",
+    "static/js/2.de963d77.chunk.js": "/instabic/static/js/2.de963d77.chunk.js",
+    "static/js/2.de963d77.chunk.js.map": "/instabic/static/js/2.de963d77.chunk.js.map",
+    "static/js/3.346b2e0a.chunk.js": "/instabic/static/js/3.346b2e0a.chunk.js",
+    "static/js/3.346b2e0a.chunk.js.map": "/instabic/static/js/3.346b2e0a.chunk.js.map",
+    "index.html": "/instabic/index.html",
+    "static/css/main.0778f9fe.chunk.css.map": "/instabic/static/css/main.0778f9fe.chunk.css.map",
+    "static/js/2.de963d77.chunk.js.LICENSE.txt": "/instabic/static/js/2.de963d77.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.efe2cdb7.js",
+    "static/js/2.de963d77.chunk.js",
+    "static/css/main.0778f9fe.chunk.css",
+    "static/js/main.6ea1f6b5.chunk.js"
+  ]
+}
