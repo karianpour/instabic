@@ -2,6 +2,8 @@
 
 It is a project to test fabric js with reactjs and typescript to mimic instagrem filter like.
 
+Live [demo](https://karianpour.github.io/instabic/)
+
 ## To start development
 
 ```
