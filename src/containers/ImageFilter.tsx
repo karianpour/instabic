@@ -198,7 +198,7 @@ function Filter({
   });
 
   return (
-    <div className="flex-col" onClick={handleClick} onKeyUp={handleKeyup} tabIndex={0}>
+    <div className="flex-col" onClick={handleClick} onKeyUp={handleKeyup} onPointerUp={handleClick} tabIndex={0}>
       <label className="filter__label">{filter.name}</label>
       <FabricJSCanvas
         className="filter__thumbnail"
