@@ -31,3 +31,19 @@
   width: 64px;
   height: 64px;
 }
+
+.filter__select-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--backgroud-color);
+}
+
+.filter__select-value-close {
+  position: absolute;
+  top: 0;
+  right: 8px;
+}

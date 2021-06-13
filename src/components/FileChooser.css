@@ -6,11 +6,11 @@
   transition: background-color 150ms ease;
 }
 
-.file-chooser__container__dragover{
+.file-chooser__container__dragover {
   background-color: #ef00ff2e;
 }
 
-.file-chooser__label{
+.file-chooser__label {
   position: relative;
   overflow: hidden;
   font-size: 3rem;

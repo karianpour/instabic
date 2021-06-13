@@ -1,7 +1,11 @@
 import React from "react";
 import "./FileChooser.css";
 
-export function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
+export function FileChooser({
+  onSelected,
+}: {
+  onSelected: (url: string) => void;
+}) {
   const [dragOver, setDragOver] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -13,25 +17,25 @@ export function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
     handleIgnore(e);
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
-      if(file.type==='image/jpeg'){
+      if (file.type === "image/jpeg") {
         handleSelected(file);
       }
     }
   };
 
-  const handleKey = (e: React.KeyboardEvent)=> {
-    if(e.key===' ' || e.key==='Enter'){
+  const handleKey = (e: React.KeyboardEvent) => {
+    if (e.key === " " || e.key === "Enter") {
       inputRef.current?.click();
     }
-  }
+  };
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
     handleIgnore(e);
     setDragOver(false);
-    if(e.dataTransfer?.files && e.dataTransfer?.files.length > 0){
+    if (e.dataTransfer?.files && e.dataTransfer?.files.length > 0) {
       const file = e.dataTransfer.files[0];
-      console.log(file.type)
-      if(file.type==='image/jpeg'){
+      console.log(file.type);
+      if (file.type === "image/jpeg") {
         handleSelected(file);
       }
     }
@@ -62,14 +66,10 @@ export function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
       onDragOver={handleEnter}
       onDrop={handleDrop}
     >
-      <label
-        tabIndex={0}
-        className="file-chooser__label"
-        onKeyUp={handleKey}
-      >
+      <label tabIndex={0} className="file-chooser__label" onKeyUp={handleKey}>
         <span>
           Click to select a photo
-          <br/>
+          <br />
           or
           <br />
           drop it here
