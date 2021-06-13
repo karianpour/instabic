@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './pages/Home';
-import ImageFilter from './pages/ImageFilter';
+import FilterPage from './pages/FilterPage';
 
 function App() {
   const [started, setStarted] = React.useState(false);
@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App flex-col">
       {!started && <Home handleStart={handleStart}/>}
-      {started && <ImageFilter onClose={handleClose}/>}
+      {started && <FilterPage onClose={handleClose}/>}
     </div>
   );
 }

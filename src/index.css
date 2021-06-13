@@ -44,6 +44,15 @@ body {
   flex-grow: 1;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
+.hidden {
+  position: absolute;
+  left: calc(0px - 100vw);
+}
+
 button {
   display: flex;
   justify-content: center;

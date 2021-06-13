@@ -1,13 +1,4 @@
-
-.filter__header {
-
-}
-
-.filter__content {
-  flex-grow: 1;
-}
-
-.filter__chooser-container {
+.file-chooser__container {
   border: 2px dashed var(--gray-50);
   border-radius: var(--border-radius);
   background-color: var(--gray-200);
@@ -15,17 +6,12 @@
   transition: background-color 150ms ease;
 }
 
-.filter__chooser-container__dragover{
+.file-chooser__container__dragover{
   background-color: #ef00ff2e;
 }
 
-.filter__file-chooser{
+.file-chooser__label{
   position: relative;
   overflow: hidden;
   font-size: 3rem;
-}
-
-.hidden {
-  position: absolute;
-  left: calc(0px - 100vw);
 }

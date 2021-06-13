@@ -1,0 +1,8 @@
+
+.filter-page__header {
+  padding-bottom: 8px;
+}
+
+.filter-page__content {
+  flex-grow: 1;
+}

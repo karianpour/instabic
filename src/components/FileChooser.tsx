@@ -1,40 +1,9 @@
 import React from "react";
-import CloseIcon from "../icons/CloseIcon";
-import "./ImageFilter.css";
+import "./FileChooser.css";
 
-export default function ImageFilter({onClose}:{onClose: ()=> void}) {
-  const [url, setUrl] = React.useState("");
-
-  const handleSelected = (url: string)=>{
-    setUrl(url);
-  }
-
-  const handleClose = () => {
-    if(url){
-      setUrl("");
-    }else{
-      onClose();
-    }
-  }
-
-  return (
-    <>
-      <header className="filter__header flex-row">
-        <div className="spacer" />
-        <button className="icon-button" onClick={handleClose}>
-          <CloseIcon />
-        </button>
-      </header>
-      <section className="filter__content flex-col">
-        {!url && <FileChooser onSelected={handleSelected}/>}
-        {/* {url && <Filter url={url}/>} */}
-      </section>
-    </>
-  );
-}
-
-function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
+export function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
   const [dragOver, setDragOver] = React.useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleSelected = (file: File) => {
     onSelected(URL.createObjectURL(file));
@@ -49,6 +18,12 @@ function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
       }
     }
   };
+
+  const handleKey = (e: React.KeyboardEvent)=> {
+    if(e.key===' ' || e.key==='Enter'){
+      inputRef.current?.click();
+    }
+  }
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
     handleIgnore(e);
@@ -79,8 +54,8 @@ function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
 
   return (
     <div
-      className={`filter__chooser-container flex-col center ${
-        dragOver ? "filter__chooser-container__dragover" : ""
+      className={`file-chooser__container flex-col center ${
+        dragOver ? "file-chooser__container__dragover" : ""
       }`}
       onDragEnter={handleEnter}
       onDragLeave={handleLeave}
@@ -88,7 +63,9 @@ function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
       onDrop={handleDrop}
     >
       <label
-        className="filter__file-chooser"
+        tabIndex={0}
+        className="file-chooser__label"
+        onKeyUp={handleKey}
       >
         <span>
           Click to select a photo
@@ -102,6 +79,7 @@ function FileChooser({onSelected}:{onSelected: (url: string)=>void}) {
           accept="image/jpeg"
           onChange={handleChange}
           className="hidden"
+          ref={inputRef}
         />
       </label>
     </div>
