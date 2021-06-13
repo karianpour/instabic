@@ -157,7 +157,6 @@ function Filter({
   };
 
   const handleKeyup = (e: React.KeyboardEvent) => {
-    console.log(e.key)
     if(e.key===' ' || e.key==='Enter'){
       onApplyFilter(filter);
     }
