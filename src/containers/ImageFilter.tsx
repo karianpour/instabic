@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef, forwardRef, useEffect, useImperativeHandle } from "react";
 import "./ImageFilter.css";
 import { FabricJSCanvas, useFabricJSEditor } from "fabricjs-react";
 import { fabric } from "fabric";
@@ -62,7 +62,6 @@ const Filters: FilterType[] = [
   {
     name: "Sepia",
     createFilters: () => {
-      debugger
       return [new fabric.Image.filters.Sepia({
         sepia: 0.5,
       })];
@@ -70,8 +69,25 @@ const Filters: FilterType[] = [
   },
 ];
 
-export default function ImageFilter({ url }: { url: string }) {
+type ImageFilterProps = { url: string };
+
+export type ImageFilterRef = {
+  getImageUrl: () => string | undefined,
+}
+
+export default forwardRef<ImageFilterRef, ImageFilterProps>(ImageFilter);
+
+function ImageFilter({ url }: ImageFilterProps, ref: ForwardedRef<ImageFilterRef>) {
   const { editor, onReady } = useFabricJSEditor();
+
+  useImperativeHandle(ref, () => ({
+    getImageUrl: () => {
+      return editor?.canvas.toDataURL({
+        format: 'jpeg',
+        quality: 0.85,
+      });
+    },
+  }));
 
   const handleApplyFilter = (filter: FilterType) => {
     const mainImage = getMainImage(editor?.canvas);
@@ -93,7 +109,7 @@ export default function ImageFilter({ url }: { url: string }) {
     }
   }
 
-  React.useEffect(()=>{
+  useEffect(()=>{
     if(editor){
       window.addEventListener('resize', handleResize);
     }
@@ -102,7 +118,7 @@ export default function ImageFilter({ url }: { url: string }) {
     }
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(!editor) return;
     const mainImage = getMainImage(editor?.canvas);
     if(mainImage) return;

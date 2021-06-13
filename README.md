@@ -17,3 +17,9 @@ npm test
 ## Desing
 
 The design is available [here](https://miro.com/app/board/o9J_l_GNwCI=/)
+
+## Features
+
+- full keyboard accessible
+- dark mode
+- no ui kit used

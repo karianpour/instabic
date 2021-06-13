@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FileChooser } from "../components/FileChooser";
-import ImageFilter from "../containers/ImageFilter";
+import ImageFilter, { ImageFilterRef } from "../containers/ImageFilter";
 import CloseIcon from "../icons/CloseIcon";
 import DownloadIcon from "../icons/DownloadIcon";
+import { downloadUrl } from "../utils/filedownloader";
 import "./FilterPage.css";
 
 export default function FilterPage({onClose}:{onClose: ()=> void}) {
   const [url, setUrl] = React.useState("");
+  const imageRef = useRef<ImageFilterRef>(null);
 
   const handleSelected = (url: string)=>{
     setUrl(url);
@@ -21,7 +23,10 @@ export default function FilterPage({onClose}:{onClose: ()=> void}) {
   }
 
   const handleDownload = () => {
-
+    const dataUrl = imageRef.current?.getImageUrl();
+    if(dataUrl){
+      downloadUrl(dataUrl, 'image.jpeg');
+    }
   }
 
   return (
@@ -37,7 +42,7 @@ export default function FilterPage({onClose}:{onClose: ()=> void}) {
       </header>
       <section className="filter-page__content flex-col">
         {!url && <FileChooser onSelected={handleSelected}/>}
-        {url && <ImageFilter url={url}/>}
+        {url && <ImageFilter url={url} ref={imageRef}/>}
       </section>
     </>
   );
