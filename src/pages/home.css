@@ -8,3 +8,17 @@
   padding: 8px;
   margin: 16px 24px;
 }
+
+.home__footer {
+  align-items: flex-start;
+}
+
+.home__footer-name {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.home__footer-version {
+  font-size: 0.7rem;
+  margin: 0;
+}

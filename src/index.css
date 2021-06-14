@@ -100,3 +100,7 @@ button:hover {
 .icon-button:hover {
   background-color: var(--highlight-color);
 }
+
+footer {
+  font-size: 0.8rem;
+}

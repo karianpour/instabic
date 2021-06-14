@@ -19,8 +19,9 @@ export default function Home({ handleStart }: { handleStart: () => void }) {
           Start
         </button>
       </div>
-      <footer className="flex-col">
-        <p>By Kayvan Arianpour</p>
+      <footer className="home__footer flex-col">
+        <p className="home__footer-name">By Kayvan Arianpour</p>
+        <p className="home__footer-version">Version: {process.env.REACT_APP_VERSION}</p>
       </footer>
     </>
   );
